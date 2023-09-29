@@ -1,0 +1,49 @@
+.comment {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 16px;
+    width: 100%;
+
+    &__avatar {
+        border-radius: 50%;
+        overflow: hidden;
+        height: 70px;
+        width: 70px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    &__box {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    &__wrapper {
+        padding-bottom: 12px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+    }
+
+    &__info {}
+
+    &__text {
+        color: #fff;
+        font-size: 16px;
+        line-height: 24px;
+
+        &_type {
+            &_light {
+                color: #8a8a8a;
+            }
+        }
+    }
+}

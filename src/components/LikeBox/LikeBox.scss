@@ -1,0 +1,32 @@
+.likes-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    &__icon {
+        background: url(../../assets/icons/likeVector.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 22px;
+        display: block;
+        height: 22px;
+        width: 22px;
+        cursor: pointer;
+
+        &_active {
+            background: url(../../assets/icons/likeRed.svg);
+        }
+        &_type {
+            &_info {
+                background: url(../../assets/icons/likeInfo.svg);
+                background-repeat: no-repeat;
+                cursor: auto;
+            }
+        }
+    }
+
+    &__number {
+        color: #fff;
+        font-size: 16px;
+    }
+}
