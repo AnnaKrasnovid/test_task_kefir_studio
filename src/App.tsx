@@ -32,7 +32,7 @@ function App() {
     function getAuthors() {
         getAuthorsRequest()
             .then(r => setAuthors(r))
-            .catch(err => console.log(err));
+            .catch(err => console.error(err));
     }
 
     function getCommentsList() {
@@ -102,7 +102,6 @@ function App() {
             setPage(page - 1)
         }
     }, [isError]);
-    console.log(page)
 
     return (
         <div className="app">

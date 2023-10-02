@@ -30,7 +30,6 @@ export function subtractHours(date: Date, numOfHours: number) {
 
 export function getDateFormat(dateComment: string) {
     let date = new Date(Date.parse(dateComment));
-    // console.log(Date.parse(dateComment))
     const RuDate = new Intl.DateTimeFormat('ru', options);
     return RuDate.format(date);
 }
