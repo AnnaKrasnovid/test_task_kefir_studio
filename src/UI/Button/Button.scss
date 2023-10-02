@@ -1,0 +1,10 @@
+@import '../../styles/variables.scss';
+
+.button-more {
+    color: $color-white;
+    font-size: 16px;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid $color-gray;
+    width: fit-content;
+}

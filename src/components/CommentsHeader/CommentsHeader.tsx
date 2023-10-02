@@ -1,19 +1,17 @@
 import LikeBox from '../LikeBox/LikeBox';
 
-import './CommentsHeader.scss';
+import { CommentsHeaderInt } from 'src/interfaces';
+import { getTextComments } from 'src/lib/text';
 
-interface CommentsHeaderInt {
-    likes?: number,
-    comments?: number,
-}
+import './CommentsHeader.scss';
 
 function CommentsHeader({ likes = 0, comments = 0 }: CommentsHeaderInt) {
     return (
         <div className="comments-header">
-            <p className="comments-header__text">{comments} комментариев</p>
+            <p className="comments-header__text">{comments} {getTextComments(comments)}</p>
             <div className="comments-header__box">
                 <div className="comments-header__wrapper">
-                    <LikeBox type={'info'}/>
+                    <LikeBox type={'info'} likes={likes} />
                 </div>
             </div>
         </div>

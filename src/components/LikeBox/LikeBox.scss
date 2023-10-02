@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 .likes-box {
     display: flex;
     align-items: center;
@@ -15,6 +17,7 @@
 
         &_active {
             background: url(../../assets/icons/likeRed.svg);
+            background-repeat: no-repeat;
         }
         &_type {
             &_info {
@@ -26,7 +29,7 @@
     }
 
     &__number {
-        color: #fff;
+        color: $color-white;
         font-size: 16px;
     }
 }

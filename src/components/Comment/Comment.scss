@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 .comment {
     display: grid;
     grid-template-columns: max-content 1fr;
@@ -7,8 +9,8 @@
     &__avatar {
         border-radius: 50%;
         overflow: hidden;
-        height: 70px;
-        width: 70px;
+        height: 50px;
+        width: 50px;
 
         img {
             width: 100%;
@@ -36,14 +38,26 @@
     &__info {}
 
     &__text {
-        color: #fff;
-        font-size: 16px;
-        line-height: 24px;
+        color: $color-white;
+        font-size: 14px;
+        line-height: 22px;
 
         &_type {
             &_light {
-                color: #8a8a8a;
+                color: $color-gray;
+                font-size: 12px;
+                line-height: 20px;
             }
+        }
+    }
+}
+
+@media(max-width: 768px) {
+    .comment {       
+
+        &__avatar {
+            height: 30px;
+            width: 30px;
         }
     }
 }
