@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/test_task_kefir_studio/static/css/main.a16b6aea.css",
-    "main.js": "/test_task_kefir_studio/static/js/main.6b31a30a.js",
+    "main.css": "/test_task_kefir_studio/static/css/main.938f94d7.css",
+    "main.js": "/test_task_kefir_studio/static/js/main.bf6b780b.js",
     "static/media/han-solo.jpg": "/test_task_kefir_studio/static/media/han-solo.84705bac66e252072c67.jpg",
     "static/media/likeInfo.svg": "/test_task_kefir_studio/static/media/likeInfo.9df1fc217f50b5a2642e.svg",
     "static/media/likeVector.svg": "/test_task_kefir_studio/static/media/likeVector.10369e6b2bb03f17e9c7.svg",
     "index.html": "/test_task_kefir_studio/index.html",
     "static/media/likeRed.svg": "/test_task_kefir_studio/static/media/likeRed.1e935dbf7efd508fea49.svg",
-    "main.a16b6aea.css.map": "/test_task_kefir_studio/static/css/main.a16b6aea.css.map",
-    "main.6b31a30a.js.map": "/test_task_kefir_studio/static/js/main.6b31a30a.js.map"
+    "main.938f94d7.css.map": "/test_task_kefir_studio/static/css/main.938f94d7.css.map",
+    "main.bf6b780b.js.map": "/test_task_kefir_studio/static/js/main.bf6b780b.js.map"
   },
   "entrypoints": [
-    "static/css/main.a16b6aea.css",
-    "static/js/main.6b31a30a.js"
+    "static/css/main.938f94d7.css",
+    "static/js/main.bf6b780b.js"
   ]
 }
