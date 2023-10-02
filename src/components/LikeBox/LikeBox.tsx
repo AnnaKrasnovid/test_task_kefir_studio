@@ -1,16 +1,17 @@
-import { useState } from 'react';
+import { memo, useCallback, useState, useEffect } from 'react';
 
 import { LikeBoxInt } from 'src/interfaces';
 
 import './LikeBox.scss';
 
-function LikeBox({ likes, callback=()=> {} , type = 'like', id=1 }: LikeBoxInt) {
+const LikeBox = memo(({ likes, callback = () => { }, type = 'like', id = 1 }: LikeBoxInt) => {
     const [isActiveLike, setIsActiveLike] = useState(false);
 
-    function toggleLike(id: number, isActive: boolean) {
+    const toggleLike = useCallback((id: number, isActive: boolean) => {
         setIsActiveLike(!isActiveLike)
         callback(id, isActive)
-    }
+
+    }, [isActiveLike, callback])
 
     return (
         <div className={`likes-box `}>
@@ -24,6 +25,5 @@ function LikeBox({ likes, callback=()=> {} , type = 'like', id=1 }: LikeBoxInt) 
             <p className="likes-box__number">{likes}</p>
         </div>
     )
-}
-
+})
 export default LikeBox;

@@ -1,13 +1,15 @@
-import './Button.scss';
+import { memo } from 'react';
 
 import { ButtonInt } from 'src/interfaces';
 
-function Button({text='', type='button', callback}:ButtonInt) {
+import './Button.scss';
+
+const Button = memo(({ text = '', type = 'button', callback }: ButtonInt) => {
     return (
         <button type={type} className='button-more' onClick={callback}>
             {text}
         </button>
     )
-}
+})
 
 export default Button;

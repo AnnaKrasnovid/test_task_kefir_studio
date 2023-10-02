@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 import CommentsHeader from "../CommentsHeader/CommentsHeader";
 import CommentsList from "../CommentsList/CommentsList";
@@ -14,6 +14,10 @@ function SectionComments({ renderList, authors, toggleLike, isLoading, page, set
     const [totalLikes, setTotalLikes] = useState<number>(1);
     const [totalComments, setTotalComments] = useState<number>(1);
 
+    const changePage = useCallback(() => {
+        setPage(page + 1)
+    }, [isError, page])
+
     useEffect(() => {
         const allComments = [...commentsPage1.data, ...commentsPage2.data, ...commentsPage3.data];
         setTotalLikes(allComments.reduce((sum, item) => sum + item.likes, 0));
@@ -28,10 +32,10 @@ function SectionComments({ renderList, authors, toggleLike, isLoading, page, set
                 <Loader />
             ) : (
                 page < totalPages && renderList.length > 0 && (
-                    isError ? (                        
-                        <Error text="Что-то пошло не так, попробуйте повторить еще раз"/>
+                    isError ? (
+                        <Error text="Что-то пошло не так, попробуйте повторить еще раз" />
                     ) : (
-                        <Button text="Загрузить еще" callback={() => setPage(page + 1)} />
+                        <Button text="Загрузить еще" callback={changePage} />
                     )
                 )
             )}

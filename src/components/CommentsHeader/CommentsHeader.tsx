@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import LikeBox from '../LikeBox/LikeBox';
 
 import { CommentsHeaderInt } from 'src/interfaces';
@@ -5,7 +7,7 @@ import { getTextComments } from 'src/lib/text';
 
 import './CommentsHeader.scss';
 
-function CommentsHeader({ likes = 0, comments = 0 }: CommentsHeaderInt) {
+const CommentsHeader = memo(({ likes = 0, comments = 0 }: CommentsHeaderInt) => {    
     return (
         <div className="comments-header">
             <p className="comments-header__text">{comments} {getTextComments(comments)}</p>
@@ -16,6 +18,6 @@ function CommentsHeader({ likes = 0, comments = 0 }: CommentsHeaderInt) {
             </div>
         </div>
     )
-}
+})
 
 export default CommentsHeader;

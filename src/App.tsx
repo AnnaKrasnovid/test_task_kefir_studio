@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import SectionComments from "./components/SectionComments/SectionComments";
 
@@ -18,16 +18,17 @@ function App() {
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [isError, setIsError] = useState<boolean>(false);
 
-    function toggleLike(id: number, isActive: boolean) {
-        const result = renderList.map((i) => {
-            if (i.id === id) {
-                return { ...i, likes: isActive ? (i.likes - 1) : (i.likes + 1) };
-            } else {
-                return i;
-            }
-        })
-        setRenderList(result);
-    }
+    const toggleLike = useCallback(
+        (id: number, isActive: boolean) => {
+            const result = renderList.map((i) => {
+                if (i.id === id) {
+                    return { ...i, likes: isActive ? (i.likes - 1) : (i.likes + 1) };
+                } else {
+                    return i;
+                }
+            })
+            setRenderList(result);
+        }, [renderList])
 
     function getAuthors() {
         getAuthorsRequest()
@@ -49,11 +50,15 @@ function App() {
 
                 setTimeout(() => {
                     setIsError(false);
-                }, 3000);
+                }, 2000);
             })
             .finally(() => {
                 setIsLoading(false);
             });
+    }
+
+    function getObject(list:Array<CommentInt>, i:CommentBaseInt){
+        list.push({ ...i, comments: [] })
     }
 
     function getComments() {
@@ -62,29 +67,30 @@ function App() {
 
         comments.map((i: CommentBaseInt): void => {
             if (i.parent === null) {
-                renderList.push({ ...i, comments: [] })
+                getObject(renderList,i);
             } else {
-                commentsList.push({ ...i, comments: [] })
+                getObject(commentsList,i);
             }
         });
 
         commentsList.sort((a: CommentInt, b: CommentInt) => a.id - b.id);
 
         commentsList.map((item: CommentInt) => {
-            const sortComments = (renderList: Array<CommentInt>) => renderList.map((i: CommentInt, ind: number) => {
+            const sortComments = (renderList: Array<CommentInt>) => renderList.map((i: CommentInt, ind: number) => {                            
                 if (item.parent === i.id) {
-                    renderList[ind].comments.push(item)
-                }
-                sortComments(renderList[ind].comments)
+                    renderList[ind].comments.push(item);
+                }               
+                sortComments(renderList[ind].comments);
             })
-             sortComments(renderList)
+              sortComments(renderList)
         })
-        setRenderList(renderList)
-    }
+       
+        setRenderList(renderList);
+    }  
 
     useEffect(() => {
         if (!isError) {
-        getCommentsList();
+            getCommentsList();
         }
     }, [page]);
 
@@ -92,14 +98,13 @@ function App() {
         getComments();
     }, [comments]);
 
-
     useEffect(() => {
         getAuthors();
     }, []);
 
     useEffect(() => {
         if (isError) {
-            setPage(page - 1)
+            setPage(page - 1);
         }
     }, [isError]);
 
