@@ -1,6 +1,6 @@
 # Тестовое задание
 
-## Посмотреть в браузере: []
+## Посмотреть в браузере: [https://annakrasnovid.github.io/test_task_kefir_studio/]
 
 1. Репозиторий не форкать
 2. Выполненное задание загрузить на GitHub (GitHub Pages)
